@@ -6,14 +6,14 @@ const ResultView = function(){
 ResultView.prototype.bindEvents = function () {
   PubSub.subscribe('WordCounter: result', (evt) => {
     const result = evt.detail;
-    console.log(result);
-    // this.updateView(result);
+    // console.log(result);
+    this.updateView(result);
   })
 
 };
 
-ResutView.prototype.updateView = function () {
+ResultView.prototype.updateView = function (result) {
   const resultElement = document.querySelector('#result')
-  resultElement.textContent = `You entered ${} words`
+  resultElement.textContent = `You entered ${result} words`
 };
 module.exports = ResultView;
